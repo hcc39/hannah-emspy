@@ -1,0 +1,28 @@
+import csv
+
+#Populate amino acid scores dictionary with hopp woods and electrostatic scores under the key of amino acid number.
+#Format "Amino acid code": [Hopp woods score, electrostatic score]
+aa_scores = {}
+with open('C:/Users/HannahCharlotte/Documents/Research Projects/2017 HLA EMS Model/Hannah EMSPy/aa_scores.csv', 'rb') as csvfile:
+    aa_scores_reader = csv.reader(csvfile, delimiter = ',')
+    for row in aa_scores_reader:
+        k,v = row[0], row[1:]
+        aa_scores[k] = v
+
+#Dictionary of HLA amino acid sequence in form "HLA name": [aa 1, aa2 etc]
+hla_aa_sequence = {}
+with open('C:/Users/HannahCharlotte/Documents/Research Projects/2017 HLA EMS Model/Hannah EMSPy/hla_aa_sequence.csv', 'rb') as csvfile:
+    hla_aa_sequence_reader = csv.reader(csvfile, delimiter = ',')
+    for row in hla_aa_sequence_reader:
+        k,v = row[0], row[1:]
+        hla_aa_sequence[k] = v
+
+hla_donor_recipient = {}
+with open('C:/Users/HannahCharlotte/Documents/Research Projects/2017 HLA EMS Model/Hannah EMSPy/donor_recipient_hla.csv', 'rb') as csvfile:
+    next(csvfile)
+    donor_recipient_hla_reader = csv.reader(csvfile, delimiter = ',')
+    for row in donor_recipient_hla_reader:
+        k,v = row[0], row[1:]
+        hla_donor_recipient[k] = v
+
+print "no"
